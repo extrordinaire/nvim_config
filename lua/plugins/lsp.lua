@@ -4,9 +4,18 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig").lua_ls.setup {}
-      require("lspconfig").pyright.setup {}
-      require("lspconfig").rust_analyzer.setup {}
+      local lspconfig = require("lspconfig")
+      
+      lspconfig.lua_ls.setup {}
+      lspconfig.pyright.setup {}
+      lspconfig.rust_analyzer.setup {}
+      lspconfig.biome.setup {}
+      lspconfig.clangd.setup {}
+      lspconfig.zls.setup {
+        cmd= {"zls"},
+        filetypes = {"zig"},
+      }
+
     end,
   },
   {
@@ -19,7 +28,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup {
-        ensure_installed = { "lua_ls", "pyright", "rust_analyzer" }
+        ensure_installed = { "lua_ls", "pyright", "rust_analyzer", "biome", "clangd", "zls" }
       }
     end,
   },
