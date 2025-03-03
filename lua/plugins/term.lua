@@ -4,8 +4,7 @@ return {
     version = "*",
     config = function()
       require("toggleterm").setup({
-        size = 20,
-        open_mapping = [[<leader>t]], -- Press <leader> + t to toggle terminal
+        size = 10,
         hide_numbers = true, -- Hide line numbers in terminal buffers
         shade_terminals = true, -- Dim inactive terminals
         shading_factor = 2, -- Degree of dimming
@@ -15,6 +14,9 @@ return {
         close_on_exit = true, -- Close terminal when process exits
         shell = vim.o.shell, -- Use default shell
       })
+
+      vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>ToggleTerm<CR>', { noremap = true, silent = true })
+      vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>:bd!<CR>]], { noremap = true, silent = true })
     end,
   },
 }
