@@ -17,6 +17,12 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts) -- Toggle file explorer
 keymap("n", "<C-d>", "<C-d>zz", opts)             -- Scroll down half-page and center
 keymap("n", "<C-u>", "<C-u>zz", opts)             -- Scroll up half-page and center
 
+keymap("n", "<Tab>", ":tabnext<CR>", { noremap = true, silent = true })
+keymap("n", "<S-Tab>", ":tabprev<CR>", { noremap = true, silent = true })
+keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true, silent = true }) -- Close tab
+keymap("n", "<leader>tn", ":tabnew<CR>", { noremap = true, silent = true }) -- New tab
+
+
 -- Visual Mode Keybindings
 keymap("v", "$", "g_", opts)                      -- Move to end of line (non-blank)
 keymap("v", "g_", "$", opts)                      -- Move to end of line
@@ -30,3 +36,4 @@ vim.keymap.set('n', '<leader><Right>',
 		vim.cmd('NvimTreeFocus')
 	end, 
 	{ noremap = true, silent = true })
+
