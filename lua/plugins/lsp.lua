@@ -11,10 +11,8 @@ return {
       lspconfig.rust_analyzer.setup {}
       lspconfig.biome.setup {}
       lspconfig.clangd.setup {}
-      lspconfig.zls.setup {
-        cmd= {"zls"},
-        filetypes = {"zig"},
-      }
+      lspconfig.zls.setup {}
+      lspconfig.vue_language_server.setup {}
 
     end,
   },

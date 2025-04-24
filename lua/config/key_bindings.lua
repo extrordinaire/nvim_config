@@ -22,6 +22,11 @@ keymap("n", "<S-Tab>", ":tabprev<CR>", { noremap = true, silent = true })
 keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true, silent = true }) -- Close tab
 keymap("n", "<leader>tn", ":tabnew<CR>", { noremap = true, silent = true }) -- New tab
 
+vim.keymap.set('n', '<leader>h', function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, {desc = '[T]oggle Inlay [H]ints'})
+
+vim.lsp.inlay_hint.enable()
 
 -- Visual Mode Keybindings
 keymap("v", "$", "g_", opts)                      -- Move to end of line (non-blank)
